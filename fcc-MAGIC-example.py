@@ -10,7 +10,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
 import tensorflow as tf
 cols = ["fLength", "fWidth", "fSize", "fCone", "fCone1", "fAsym", "fM3Long", "M3Trans", "fAlpha", "fDist", "class"]
-df = pd.read_csv("magic04.data", names = cols)
+df = pd.read_csv("/Users/eric/Documents/VS_CODE/ML_Course/fcc-MAGIC-example.py", names = cols)
 df.head()
 
 df["class"] = (df["class"] == "g").astype(int)
@@ -118,7 +118,7 @@ def train_model(x_train, y_train, num_nodes, dropout_prob, lr, batch_size, epoch
     )
     return nn_model, history
 
-
+print(y_train)
 model, history = train_model(x_train, y_train, 32, 0.2, 0.005, 64, 100)
 plot_history(history)
 
